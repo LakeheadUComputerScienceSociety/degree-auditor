@@ -1,0 +1,25 @@
+<template name="UserCourseEntry">
+  <div class='wrapper'>
+    <h4>First Year</h4>
+    <div style = "background-color:yellow; float:left;" id='left1' class='container'>
+      {{#each lu_courses}}
+        <div>{{Course_Name}}</div>
+      {{/each}}
+    </div>
+
+    <h4>Second Year</h4>
+    <div style = "background-color:blue; float:left;" id='right1' class='container'>
+      <p>Good luck guys</p>
+    </div>
+
+    <h4>Third Year</h4>
+    <div style = "background-color:red; float:left;" id='right2' class='container'>
+      <p>Third year - it's going to be great</p>
+    </div>
+
+    <h4>Fourth Year</h4>
+    <div style = "background-color:purple; float:left;" id='right3' class='container'>
+      <p>Last one, I hope you have your life in order.</p>
+    </div>
+  </div>
+</template>
