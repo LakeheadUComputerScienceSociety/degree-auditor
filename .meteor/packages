@@ -29,3 +29,4 @@ zimme:active-route
 twbs:bootstrap
 zibx:reactive-table
 ahref:dragula
+yn5:pure-grids          #Enables Pure.css grids for front end
