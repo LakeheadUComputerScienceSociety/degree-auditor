@@ -18,17 +18,15 @@ DegreeCourseSchema = new SimpleSchema({ //Contains course info. (e.g. COMP-1411)
       label:"Department Code",
       autoform: {
         options: function(){
-          console.log(LUCourses.find().fetch());
           return LUCourses.find().fetch().map(function (course) {
-            return {label: (course.Department_Code+course.Course_Number), value: (course.Department_Code+course.Course_Number)};
+            return {
+              label: (course.Department_Code+" "+course.Course_Number+" "+course.Course_Name),
+              value: course.Department_Code+"|||"+course.Course_Number //here ||| is used to tokenize the string in the future. Might be a better way to do this, it's a bit messy.
+            };
           });
         }
       }
-    }//,
-    //Course_number:{
-      //type: Number,
-      //label:"Course Number"
-    //}
+    }
 });
 
 CourseGroupSchema = new SimpleSchema({ //Contains info related to groups of courses
