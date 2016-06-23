@@ -1,0 +1,12 @@
+<template name="DegreeCreator">
+
+  <div>
+    <h4>Create a Degree</h4>
+    <p>The degree creator is used to generate degrees that students can then use to modify their course selection to ensure their graduation.</p>
+  </div>
+
+  <div>
+      {{> quickForm collection= "DegreeReqs" id="insertdegreeReqsForm" type="insert" class="new-DegreeReqs-form"}}
+  </div>
+
+</template>

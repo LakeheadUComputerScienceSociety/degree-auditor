@@ -42,15 +42,17 @@ DegreeReqsSchema = new SimpleSchema({
   Degree_Credits:{ //Credits required to complete a degree (e.g. 30)
     type: Number,
     decimal: true,
-    label:"Course Credit"
+    label:"Credits Required for Degree"
   },
   Degree_Requirements:{ //any absolute course a student must take (e.g. COMP 1411 - Computer Programming I)
     type: [DegreeCourseSchema],
-    label:"Degree Courses"
+    label:"Degree Courses",
+    optional: true
   },
   Degree_Grouping: { //any situation where the student has a CHOICE of classes to take (e.g. Take 2 of the following 3 courses)
     type: [CourseGroupSchema],
-    label: "Course Groupings"
+    label: "Course Groupings",
+    optional: true
   }
 });
 
