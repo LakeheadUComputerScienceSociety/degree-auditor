@@ -15,12 +15,20 @@ DegreeReqs.allow({
 DegreeCourseSchema = new SimpleSchema({ //Contains course info. (e.g. COMP-1411)
     Department_Code:{
       type: String,
-      label:"Department Code"
-    },
-    Course_number:{
-      type: Number,
-      label:"Course Number"
-    }
+      label:"Department Code",
+      autoform: {
+        options: function(){
+          console.log(LUCourses.find().fetch());
+          return LUCourses.find().fetch().map(function (course) {
+            return {label: (course.Department_Code+course.Course_Number), value: (course.Department_Code+course.Course_Number)};
+          });
+        }
+      }
+    }//,
+    //Course_number:{
+      //type: Number,
+      //label:"Course Number"
+    //}
 });
 
 CourseGroupSchema = new SimpleSchema({ //Contains info related to groups of courses

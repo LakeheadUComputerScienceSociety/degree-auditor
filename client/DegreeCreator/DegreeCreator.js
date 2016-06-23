@@ -1,8 +1,8 @@
 Template.DegreeCreator.onCreated(function(){
     var self = this;
     self.autorun(function(){
-         console.log('here');
          self.subscribe("degreeReqs");
+         self.subscribe('luCourses');
     });
 });
 
