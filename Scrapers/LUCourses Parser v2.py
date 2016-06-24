@@ -51,6 +51,55 @@ urls = [
 #end of apology
 
 
+#Use the following dictionary to convert from 'Computer Science' (which is returned from LU website) to COMP
+programs = {
+    "Anthropology":"ANTH",
+    "Applied Bio-Molecular Science":"APBI",
+    "Bioinformatics":"BIOI",
+    "Biology":"BIOL",
+    "Business":"BUSI",
+    "Chemistry":"CHEM",
+    "Computer Science":"COMP",
+    "Criminology":"CRIM",
+    "Economics":"ECON",
+    "Education":"EDUC",
+    "Engineering":"ENGI",
+    "English":"ENGL",
+    "Environmental Studies":"ENST",
+    "General Science":"GSCI",
+    "Geoarchaeology":"GEOA",
+    "Geography":"GEOG",
+    "Geography ":"GEOG",
+    "Geology":"GEOL",
+    "Gerontology":"GERO",
+    "History":"HIST",
+    "Indigenous Learning":"INDI",
+    "Kinesiology":"KINE",
+    "Languages":"LANG",
+    "Law":"LAWS",
+    "Library and Information Studies":"LIBR",
+    "Library & Information Studies":"LIBR",
+    "Mathematics":"MATH",
+    "Medicine":"MEDS",
+    "Music":"MUSI",
+    "Native Access":"NACC",
+    "Natural Resources Management":"NRMT",
+    "Northern Studies":"NORT",
+    "Nursing":"NURS",
+    "Outdoor Recreation":"OUTD",
+    "Philosophy":"PHIL",
+    "Physics":"PHYS",
+    "Political Science":"POLI",
+    "Psychology":"PSYC",
+    "Religious Studies":"RELI",
+    "Social Work":"SOWK",
+    "Sociology":"SOCI",
+    "Visual Arts":"VISU",
+    "Water Resource Science":"WATE",
+    "Women's Studies":"WOME",
+    "French":"FREN"
+    }#YIKES #badcoder #twitterWithPython
+
 with open('LUCourses.csv', 'wb') as csvfile:
     for url in urls:
         print "Working on..." + url
@@ -75,6 +124,8 @@ with open('LUCourses.csv', 'wb') as csvfile:
         CourseCodes = []
         CourseTitles = []
 
+        DepartmentCodes = []
+        
         #parse course information (description, credits, requirements)
         for course in CourseInfoHTML:
             parsedCourse = course.findAll("span", { "class" : "course-value" }) #grabs all course data
@@ -97,14 +148,15 @@ with open('LUCourses.csv', 'wb') as csvfile:
                         CoursePrereqs.append('none')
             else:
                 CourseDescs.append('error')
-                CourseCredits.append('error')
+                CourseCredits.append('0')
                 CoursePrereqs.append('error')
 
         
         #parse course codes (e.g. Computer Science 1411)
         for course in CourseCodeHTML:
-            CourseCodes.append(course.text)
-            
+            CourseCodes.append(course.text[-4:])
+            DepartmentCodes.append(programs[course.text[:-5]])
+                     
         #parse course Title (e.g. Programming I)
         for course in CourseTitleHTML:
             CourseTitles.append(course.text)
@@ -113,7 +165,7 @@ with open('LUCourses.csv', 'wb') as csvfile:
         for i in range(0,len(CourseCodes)):
             #replace commas with | for delimiter reasons!
             CourseDescs[i] = CourseDescs[i].replace(',', '|')
-            writer.writerow([CourseCodes[i].encode('utf-8')] + [CourseTitles[i].encode('utf-8')] + [CourseDescs[i].encode('utf-8')] + [CourseCredits[i].encode('utf-8')] + [CoursePrereqs[i].encode('utf-8')])
+            writer.writerow([DepartmentCodes[i].encode('utf-8')] + [CourseCodes[i].encode('utf-8')] + [CourseTitles[i].encode('utf-8')] + [CourseDescs[i].encode('utf-8')] + [CourseCredits[i].encode('utf-8')] + [CoursePrereqs[i].encode('utf-8')])
 
 
 
