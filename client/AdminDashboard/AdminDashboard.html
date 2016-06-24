@@ -19,7 +19,11 @@
 
                 <div class = "modal-body">
                   {{#unless uploading}}
-                    <input type = "file" name="uploadCSV">
+                    <center><!--I know you shouldn't do this, too bad-->
+                      <label class = "btn btn-default btn-file">
+                        Browse <input type = "file" style = "display:none;">
+                      </label>
+                    </center>
                   {{else}}
                     <p><i class = "fa fa-spin fa-refresh"></i> Uploading Courses ...</p>
                   {{/unless}}

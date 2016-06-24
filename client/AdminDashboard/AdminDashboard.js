@@ -20,8 +20,8 @@ Template.AdminDashboard.helpers({
                 { key: 'Department_Code', label: 'Dept.', headerClass: 'col-md-1'},
                 { key: 'Course_Number', label: 'Number', headerClass: 'col-md-1' },
                 { key: 'Course_Credits', label: 'Credits', headerClass: 'col-md-1'},
-                { key: 'Course_Prerequisits', label: 'Prerequisits', headerClass: 'col-md-3'},
-                { key: 'Course_Name', label: 'Name', headerClass: 'col-md-3' },
+                { key: 'Course_Prerequisits', label: 'Prerequisits', headerClass: 'col-md-1'},
+                { key: 'Course_Name', label: 'Name', headerClass: 'col-md-1' },
                 { key: 'Course_Description', label: 'Description' },
                 { key: 'edit', label: 'Edit', fn: function () { return new Spacebars.SafeString('<button type="button" class="editbtn">Edit</button>') } },
                 { key: 'delete', label: 'Delete', fn: function () { return new Spacebars.SafeString('<button type="button" class="deletebtn">Delete</button>') } }
