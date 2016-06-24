@@ -3,6 +3,31 @@
     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#selection" style="margin-bottom: 20px">
     Add a Course Manually
     </button>
+    <button type = "button" class = "btn btn-default" data-toggle="modal" data-target="#csvUpload" style="margin-bottom: 20px">
+      Upload a CSV
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="csvUpload" tabindex="-1" role="dialog" aria-labelledby="selectionLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="selectionLabel">Upload CSV File</h4>
+                </div>
+
+                <div class = "modal-body">
+                  {{#unless uploading}}
+                    <input type = "file" name="uploadCSV">
+                  {{else}}
+                    <p><i class = "fa fa-spin fa-refresh"></i> Uploading Courses ...</p>
+                  {{/unless}}
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="selection" tabindex="-1" role="dialog" aria-labelledby="selectionLabel">
