@@ -3,7 +3,7 @@ Meteor.publish("luCourses", function(){
 });
 
 Meteor.publish("studentCourses", function(){
-    return StudentCourses.find({})
+    return StudentCourses.find({owner: this.userId})
 });
 
 Meteor.publish("degreeReqs", function(){
