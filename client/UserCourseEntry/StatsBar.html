@@ -1,0 +1,31 @@
+<Template name = "StatsBar">
+  <button type = "button" class = "btn btn-default" data-toggle="modal" data-target="#transcriptUpload" style="margin-bottom: 20px">
+    Upload a CSV
+  </button>
+
+  <div class="modal fade" id="transcriptUpload" tabindex="-1" role="dialog" aria-labelledby="selectionLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="selectionLabel">Copy and Paste your Lakehead University Transcript</h4>
+              </div>
+
+              <div class = "modal-body">
+                  <center><!--I know you shouldn't do this, too bad-->
+
+                    <div class="form-group">
+                      <label for="comment">Comment:</label>
+                      <textarea class="form-control" rows="5" id="transcriptText"></textarea>
+                      <br>
+                      <button type = "button" id = "submitTranscript">Upload</button>
+                    </div>
+
+                  </center>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</Template>

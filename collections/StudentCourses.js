@@ -1,4 +1,4 @@
-StudentCourses = new Mongo.Collection('StudentCourses');
+StudentCourses = new Mongo.Collection('studentCourses');
 
 StudentCourses.allow({
     insert: function(userId, doc){
@@ -14,13 +14,14 @@ CourseSchema = new SimpleSchema({
       type: String,
       label:"Department Code"
     },
-    Course_number:{
-      type: Number,
+    Course_Number:{
+      type: String,
       label:"Course Number"
     },
-    Course_mark:{
-      type: Number,
-      label:"Course Credit"
+    Course_Mark:{
+      type: String,
+      label:"Course Mark",
+      optional: true
     }
 });
 
@@ -29,6 +30,7 @@ StudentCoursesSchema = new SimpleSchema({
         type: String,
         label: "Owner",
         autoValue: function(){
+            console.log(this.userId)
             return this.userId
         },
         autoform:{
@@ -39,6 +41,7 @@ StudentCoursesSchema = new SimpleSchema({
         type: Date,
         label: "Created At",
         autoValue: function(){
+          console.log(new Date())
           return new Date()
         },
         autoform:{

@@ -5,6 +5,9 @@ Template.UserCourseEntry.onRendered(function(){
 Template.UserCourseEntry.helpers({
     lu_courses: function () {
        return LUCourses.find({});
+   },
+   student_courses: function(){
+     return StudentCourses.find({});
    }
 });
 
@@ -13,5 +16,6 @@ Template.UserCourseEntry.onCreated(function(){
     var self = this;
     self.autorun(function(){
          self.subscribe("luCourses");
+         self.subscribe("studentCourses");
     });
 });

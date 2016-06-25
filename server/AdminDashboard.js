@@ -1,6 +1,6 @@
 Meteor.methods({
   parseUpload(data){
-    console.log = function() {}
+    //console.log = function() {}
     check(data, Array);
     for (let i = 0; i < data.length; i++){
       let course = data[i],
