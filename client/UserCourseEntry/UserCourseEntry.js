@@ -8,6 +8,9 @@ Template.UserCourseEntry.helpers({
    },
    student_courses: function(){
      return StudentCourses.find({});
+   },
+   concat: function(a, b){
+     return a + ' ' + b;
    }
 });
 

@@ -2,12 +2,14 @@
 
   {{>StatsBar}}
 
-  <div class='wrapper pure-g' >
+  <div class='wrapper pure-g'>
     <div class = "pure-u-1 pure-u-lg-1-4 pure-u-md-1-2">
       <h4>First Year</h4>
       <ul class = "list-group" id='left1'>
-        {{#each lu_courses}}
-          <li class = "list-group-item list-group-item-success">{{Course_Name}}</li>
+        {{#each student_courses}}
+          {{#each Course}}
+          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+          {{/each}}
         {{/each}}
       </ul>
     </div>
@@ -16,7 +18,9 @@
       <h4>Second Year</h4>
       <div id='right1'>
         {{#each student_courses}}
-          <li class = "list-group-item list-group-item-warning">{{Course_Number}}</li>
+          {{#each Course}}
+          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+          {{/each}}
         {{/each}}
       </div>
     </div>
@@ -24,8 +28,10 @@
     <div class = "pure-u-1 pure-u-lg-1-4 pure-u-md-1-2">
       <h4>Third Year</h4>
       <div id='right2'>
-        {{#each lu_courses}}
-          <li class = "list-group-item list-group-item-danger">{{Course_Name}}</li>
+        {{#each student_courses}}
+          {{#each Course}}
+          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+          {{/each}}
         {{/each}}
       </div>
     </div>
@@ -33,8 +39,10 @@
     <div class = "pure-u-1 pure-u-lg-1-4 pure-u-md-1-2">
       <h4>Fourth Year</h4>
       <div id='right3'>
-        {{#each lu_courses}}
-          <li class = "list-group-item">{{Course_Name}}</li>
+        {{#each student_courses}}
+          {{#each Course}}
+          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+          {{/each}}
         {{/each}}
       </div>
     </div>
