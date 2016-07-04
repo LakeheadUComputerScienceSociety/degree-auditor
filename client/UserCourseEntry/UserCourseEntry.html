@@ -6,9 +6,11 @@
     <div class = "pure-u-1 pure-u-lg-1-4 pure-u-md-1-2">
       <h4>First Year</h4>
       <ul class = "list-group" id='left1'>
-        {{#each student_courses}}
-          {{#each Course}}
-          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+        {{#each degree_courses}}
+          {{#each Degree_Requirements}}
+            {{#if isYear 1 Course_Number}}
+              <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+            {{/if}}
           {{/each}}
         {{/each}}
       </ul>
@@ -17,9 +19,11 @@
     <div class = "pure-u-1 pure-u-lg-1-4 pure-u-md-1-2">
       <h4>Second Year</h4>
       <div id='right1'>
-        {{#each student_courses}}
-          {{#each Course}}
-          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+        {{#each degree_courses}}
+          {{#each Degree_Requirements}}
+            {{#if isYear 2 Course_Number}}
+              <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+            {{/if}}
           {{/each}}
         {{/each}}
       </div>
@@ -28,9 +32,11 @@
     <div class = "pure-u-1 pure-u-lg-1-4 pure-u-md-1-2">
       <h4>Third Year</h4>
       <div id='right2'>
-        {{#each student_courses}}
-          {{#each Course}}
-          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+        {{#each degree_courses}}
+          {{#each Degree_Requirements}}
+            {{#if isYear 3 Course_Number}}
+              <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+            {{/if}}
           {{/each}}
         {{/each}}
       </div>
@@ -39,9 +45,11 @@
     <div class = "pure-u-1 pure-u-lg-1-4 pure-u-md-1-2">
       <h4>Fourth Year</h4>
       <div id='right3'>
-        {{#each student_courses}}
-          {{#each Course}}
-          <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+        {{#each degree_courses}}
+          {{#each Degree_Requirements}}
+            {{#if isYear 4 Course_Number}}
+              <li class = "list-group-item list-group-item-warning">{{concat Department_Code Course_Number}}</li>
+            {{/if}}
           {{/each}}
         {{/each}}
       </div>
