@@ -16,7 +16,7 @@ DegreeCourseSchema = new SimpleSchema({ //Contains course info. (e.g. COMP-1411)
     Department_Code:{
       type: String,
       label:"Department Code",
-      autoform: {
+      /*autoform: {
         options: function(){
           return LUCourses.find().fetch().map(function (course) {
             return {
@@ -25,7 +25,11 @@ DegreeCourseSchema = new SimpleSchema({ //Contains course info. (e.g. COMP-1411)
             };
           });
         }
-      }
+      }*/
+    },
+    Course_Number: {
+      type: Number,
+      label: "Course Number"
     }
 });
 
@@ -36,7 +40,22 @@ CourseGroupSchema = new SimpleSchema({ //Contains info related to groups of cour
     },
     Number_Required:{ //The number of courses that are required from this group.
       type: Number,
-      label: "Number of Courses Required"
+      label: "Number of Credits Required"
+    }
+});
+
+SpecialGroupSchema = new SimpleSchema({
+    Course_Types:{
+      label: "Course Type (e.g. CHEM, BIOL)",
+      type: [String]
+    },
+    Minimum_Year_Level:{
+      label: "Minimum year level",
+      type:Number
+    },
+    Number_Required:{
+      label: "Number of courses required",
+      type: Number
     }
 });
 
@@ -50,6 +69,10 @@ DegreeReqsSchema = new SimpleSchema({
     decimal: true,
     label:"Credits Required for Degree"
   },
+  Number_Electives:{
+    label: "Number of semester-long electives student needs",
+    type: Number
+  },
   Degree_Requirements:{ //any absolute course a student must take (e.g. COMP 1411 - Computer Programming I)
     type: [DegreeCourseSchema],
     label:"Degree Courses",
@@ -58,6 +81,11 @@ DegreeReqsSchema = new SimpleSchema({
   Degree_Grouping: { //any situation where the student has a CHOICE of classes to take (e.g. Take 2 of the following 3 courses)
     type: [CourseGroupSchema],
     label: "Course Groupings",
+    optional: true
+  },
+  Elective_Grouping:{ //any situation where the student needs to take two 2nd year PHYS courses etc...
+    type: [SpecialGroupSchema],
+    label: "Elective Courses (e.g. Choose any two 2nd year CHEM courses)",
     optional: true
   }
 });
